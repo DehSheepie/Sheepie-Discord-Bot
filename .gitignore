@@ -106,3 +106,5 @@ dist
 # Stuff I don't need uploaded
 node_modules
 config.json
+package-lock.json
+
