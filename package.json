@@ -8,6 +8,7 @@
   },
   "author": "Sheepie",
   "license": "ISC",
+  "license": "",
   "dependencies": {
     "discord.js": "^12.4.1"
   }
