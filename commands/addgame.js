@@ -30,5 +30,9 @@ module.exports = {
       fs.writeFileSync("./commands/games.json", JSON.stringify(games));
       message.channel.send("Game: " + game_name + " added.");
     }
+		else
+		{
+			message.channel.send("Please enter a game name.")
+		}
 	}
 };
