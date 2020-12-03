@@ -2,12 +2,13 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
 	name: 'addgame',
-	description: 'Selects a game from the stored games.',
+	description: 'Adds a game to the stored games.',
 	execute(message, args) {
     let rawdata = fs.readFileSync(path.resolve(__dirname, "games.json"));
     let games = JSON.parse(rawdata);
     var game_name = "";
 
+		// Turn args into a string again
     for (i = 0; i < args.length; i++)
     {
       if (i < args.length - 1)
@@ -18,7 +19,6 @@ module.exports = {
       {
         game_name += args[i];
       }
-
     }
 
     if (args != "")
