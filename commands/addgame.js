@@ -21,7 +21,7 @@ module.exports = {
       }
     }
 
-    if (args != "")
+    if (game_name != "")
     {
       games.push({name: game_name});
       let cleaned = games.map(item => {
