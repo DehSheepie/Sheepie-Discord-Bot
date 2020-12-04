@@ -9,6 +9,6 @@ module.exports = {
 
     var index = Math.floor(Math.random() * games.length)
     var game = games[index];
-    message.channel.send(`Selected game: ` + games[index].name);
+    message.channel.send(`\`\`\`Game: ` + games[index].name + `\nCategories: ` + games[index].category + "\`\`\`");
 	}
 };
