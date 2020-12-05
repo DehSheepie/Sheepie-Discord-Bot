@@ -2,63 +2,38 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
 	name: 'addcategory',
-	description: 'Adds a category for a game.',
+	description: 'Adds a category to the stored categories.',
 	execute(message, args) {
-    let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
-    let games = JSON.parse(rawdata);
+// TODO: Add code to allow for an empty json file
+		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/categories.json"));
+    let categories = JSON.parse(rawdata);
+    var category_name = "";
 
-		// Create args
-		var game_name = "";
-		var category_name = "";
-		var category_bool = false;
-
-		// Get args
+		// Turn args into a string again
     for (i = 0; i < args.length; i++)
     {
-			if (category_bool == true & i >= args.length - 1)
-			{
-				category_name += args[i];
-			}
-			else if (category_bool == true)
-			{
-				category_name += args[i] + " ";
-			}
-			else if (args[i][args[i].length - 1] == ":")
-			{
-				game_name += args[i].slice(0, -1);
-				category_bool = true;
-			}
-			else
-			{
-				game_name += args[i] + " ";
-				console.log(`invalid arg: ${args[i]}`);
-			}
+      if (i < args.length - 1)
+      {
+        category_name += args[i] + " ";
+      }
+      else
+      {
+        category_name += args[i];
+      }
     }
-		console.log(`Game name:${game_name} | Category name:${category_name}`);
-		console.log(game_name & category_name);
-		if (!game_name == "" & !category_name == "")
-		{
-			for (i = 0; i < games.length; i++)
-			{
-				if (games[i].name == game_name)
-				{
-					if (games[i].hasOwnProperty('categories'))
-					{
-						games[i].categories.push(category_name)
-					}
-					else
-					{
-						games[i].categories = [category_name];
-					}
 
-					fs.writeFileSync( "./commands/data/games.json", JSON.stringify(games));
-					message.channel.send("Game: " + game_name + " added to category: " + category_name);
-				}
-			}
-		}
+    if (category_name != "")
+    {
+      categories.push({name: category_name, games: []});
+      let cleaned = categories.map(item => {
+        return { name: item.name[0], games: []};
+      });
+      fs.writeFileSync("./commands/data/categories.json", JSON.stringify(categories));
+      message.channel.send("Category: " + category_name + " added.");
+    }
 		else
 		{
-			message.channel.send("Game or Category invalid.");
+			message.channel.send("Please enter a category name.")
 		}
 	}
 };
