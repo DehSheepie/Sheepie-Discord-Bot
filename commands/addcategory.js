@@ -44,11 +44,11 @@ module.exports = {
 				{
 					if (games[i].hasOwnProperty('category'))
 					{
-						games[i].category.push(category_name)
+						games[i].categories.push(category_name)
 					}
 					else
 					{
-						games[i].category = [category_name];
+						games[i].categories = [category_name];
 					}
 
 					fs.writeFileSync( "./commands/data/games.json", JSON.stringify(games));
