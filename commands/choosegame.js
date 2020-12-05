@@ -9,6 +9,17 @@ module.exports = {
 
     var index = Math.floor(Math.random() * games.length)
     var game = games[index];
-    message.channel.send(`\`\`\`Game: ` + games[index].name + `\nCategories: ` + games[index].categories + "\`\`\`");
+
+		const Discord = require('discord.js');
+
+		const embed = new Discord.MessageEmbed()
+    // Set the title of the field
+    .setTitle(games[index].name)
+    // Set the color of the embed
+    .setColor(0xff0000)
+    // Set the main content of the embed
+    .setDescription(`Categories: ` + games[index].categories);
+  	// Send the embed to the same channel as the message
+  	message.channel.send(embed);
 	}
 };
