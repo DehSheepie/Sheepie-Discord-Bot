@@ -1,7 +1,17 @@
 module.exports = {
 	name: 'ping',
-	description: 'Ping!',
+	description: 'Pong!',
 	execute(message, args) {
-		message.channel.send('pong');
+		const Discord = require('discord.js');
+
+		const embed = new Discord.MessageEmbed()
+      // Set the title of the field
+      .setTitle('Yo, yo, yo!')
+      // Set the color of the embed
+      .setColor(0xff0000)
+      // Set the main content of the embed
+      .setDescription('Suh my dude! Flipping pong mate!');
+    	// Send the embed to the same channel as the message
+    	message.channel.send(embed);
 	}
 };
