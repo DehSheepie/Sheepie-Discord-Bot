@@ -4,7 +4,7 @@ module.exports = {
 	name: 'choosegame',
 	description: 'Selects a game from the stored games.',
 	execute(message, args) {
-    let rawdata = fs.readFileSync(path.resolve(__dirname, "games.json"));
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
     let games = JSON.parse(rawdata);
 
     var index = Math.floor(Math.random() * games.length)

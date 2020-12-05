@@ -5,7 +5,7 @@ module.exports = {
 	description: 'Adds a game to the stored games.',
 	execute(message, args) {
 // TODO: Add code to allow for an empty json file
-		let rawdata = fs.readFileSync(path.resolve(__dirname, "games.json"));
+		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
     let games = JSON.parse(rawdata);
     var game_name = "";
 
@@ -28,7 +28,7 @@ module.exports = {
       let cleaned = games.map(item => {
         return { name: item.name[0], categories: []};
       });
-      fs.writeFileSync("./commands/games.json", JSON.stringify(games));
+      fs.writeFileSync("./commands/data/games.json", JSON.stringify(games));
       message.channel.send("Game: " + game_name + " added.");
     }
 		else

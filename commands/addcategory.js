@@ -4,7 +4,7 @@ module.exports = {
 	name: 'addcategory',
 	description: 'Adds a category for a game.',
 	execute(message, args) {
-    let rawdata = fs.readFileSync(path.resolve(__dirname, "games.json"));
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
     let games = JSON.parse(rawdata);
 
 		// Create args
@@ -51,7 +51,7 @@ module.exports = {
 						games[i].category = [category_name];
 					}
 
-					fs.writeFileSync("./commands/games.json", JSON.stringify(games));
+					fs.writeFileSync( "./commands/data/games.json", JSON.stringify(games));
 					message.channel.send("Game: " + game_name + " added to category: " + category_name);
 				}
 			}
