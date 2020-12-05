@@ -42,7 +42,7 @@ module.exports = {
 			{
 				if (games[i].name == game_name)
 				{
-					if (games[i].hasOwnProperty('category'))
+					if (games[i].hasOwnProperty('categories'))
 					{
 						games[i].categories.push(category_name)
 					}
