@@ -24,9 +24,9 @@ module.exports = {
 
     if (game_name != "")
     {
-      games.push({name: game_name, categories: []});
+      games.push({name: game_name});
       let cleaned = games.map(item => {
-        return { name: item.name[0], categories: []};
+        return { name: item.name[0]};
       });
       fs.writeFileSync("./commands/data/games.json", JSON.stringify(games));
       message.channel.send("Game: " + game_name + " added.");

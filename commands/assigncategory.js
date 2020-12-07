@@ -69,21 +69,12 @@ module.exports = {
 			// Check that the game and category was found
 			if (game_found & category_found)
 			{
-				// Get game and add category
-				let game_entry_index = games.findIndex(arg => arg.name == game_name);
-				games_set = new Set(games[game_entry_index]['categories']);
-				games_set.add(category_name);
-				games[game_entry_index]['categories'] = Array.from(games_set);
-
 				// Get category and add game
 				let category_entry_index = categories.findIndex(arg => arg.name == category_name);
 				categories_set = new Set(categories[category_entry_index]['games']);
 				categories_set.add(game_name);
 				categories[category_entry_index]['games'] = Array.from(categories_set);
 
-
-				// Write to game file
-				fs.writeFileSync( "./commands/data/games.json", JSON.stringify(games));
 				// Write to category file
 				fs.writeFileSync( "./commands/data/categories.json", JSON.stringify(categories));
 
