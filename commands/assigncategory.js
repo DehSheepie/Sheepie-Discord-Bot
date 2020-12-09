@@ -38,7 +38,6 @@ module.exports = {
 			else
 			{
 				game_name += args[i] + " ";
-				console.log(`invalid arg: ${args[i]}`);
 			}
     }
 
