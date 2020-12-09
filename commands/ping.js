@@ -12,6 +12,9 @@ module.exports = {
       // Set the main content of the embed
       .setDescription('Suh my dude! Flipping pong mate!');
     	// Send the embed to the same channel as the message
-    	message.channel.send(embed);
+    	message.channel.send(embed)
+			.then((msg) => {
+				msg.react("786324988385951786")
+			});
 	}
 };
