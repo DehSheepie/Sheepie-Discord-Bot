@@ -13,5 +13,6 @@ module.exports = {
         return_value += args[i];
       }
     }
+    return return_value;
   }
 }
