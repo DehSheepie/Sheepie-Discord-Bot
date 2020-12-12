@@ -1,23 +1,11 @@
 const Discord = require('discord.js');
+const functions = require('../functions.js');
 module.exports = {
 	name: 'vote',
 	description: 'A quick vote.',
 	execute(message, args) {
 
-		var question = "";
-
-		// Turn args into a string again
-    for (i = 0; i < args.length; i++)
-    {
-      if (i < args.length - 1)
-      {
-        question += args[i] + " ";
-      }
-      else
-      {
-        question += args[i];
-      }
-    }
+		var question = functions.argsToString(args);
 
 		const embed = new Discord.MessageEmbed()
 		// Set the title of the field

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const functions = require('../functions.js');
 module.exports = {
 	name: 'addgame',
 	description: 'Adds a game to the stored games.',
@@ -7,20 +8,7 @@ module.exports = {
 // TODO: Add code to allow for an empty json file
 		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
     let games = JSON.parse(rawdata);
-    var game_name = "";
-
-		// Turn args into a string again
-    for (i = 0; i < args.length; i++)
-    {
-      if (i < args.length - 1)
-      {
-        game_name += args[i] + " ";
-      }
-      else
-      {
-        game_name += args[i];
-      }
-    }
+    var game_name = functions.argsToString(args);
 
     if (game_name != "")
     {

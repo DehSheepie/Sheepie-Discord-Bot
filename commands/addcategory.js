@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const functions = require('../functions.js');
 module.exports = {
 	name: 'addcategory',
 	description: 'Adds a category to the stored categories.',
@@ -7,20 +8,7 @@ module.exports = {
 // TODO: Add code to allow for an empty json file
 		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/categories.json"));
     let categories = JSON.parse(rawdata);
-    var category_name = "";
-
-		// Turn args into a string again
-    for (i = 0; i < args.length; i++)
-    {
-      if (i < args.length - 1)
-      {
-        category_name += args[i] + " ";
-      }
-      else
-      {
-        category_name += args[i];
-      }
-    }
+    var category_name = functions.argsToString(args);
 
     if (category_name != "")
     {
