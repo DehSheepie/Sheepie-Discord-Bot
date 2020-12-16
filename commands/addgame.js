@@ -6,8 +6,7 @@ module.exports = {
 	description: 'Adds a game to the stored games.',
 	execute(message, args) {
 // TODO: Add code to allow for an empty json file
-		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
-    let games = JSON.parse(rawdata);
+    let games = functions.getGamesData();
     var game_name = functions.argsToString(args);
 
     if (game_name != "")

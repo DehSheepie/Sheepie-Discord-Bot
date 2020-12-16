@@ -4,10 +4,8 @@ module.exports = {
 	name: 'assigncategory',
 	description: 'Assigns a category for a game.',
 	execute(message, args) {
-    let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
-    let games = JSON.parse(rawdata);
-		let rawdata2 = fs.readFileSync(path.resolve(__dirname, "data/categories.json"));
-		let categories = JSON.parse(rawdata2);
+    let games = functions.getGamesData()
+		let categories = functions.getCategoriesData();
 
 		// Create args
 		var game_name = "";

@@ -6,8 +6,7 @@ module.exports = {
 	description: 'Adds a category to the stored categories.',
 	execute(message, args) {
 // TODO: Add code to allow for an empty json file
-		let rawdata = fs.readFileSync(path.resolve(__dirname, "data/categories.json"));
-    let categories = JSON.parse(rawdata);
+    let categories = functions.getCategoriesData();
     var category_name = functions.argsToString(args);
 
     if (category_name != "")

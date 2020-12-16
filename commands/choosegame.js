@@ -13,8 +13,7 @@ module.exports = {
 
 			if (functions.checkCategoryExists(category_name))
 			{
-				let rawdata = fs.readFileSync(path.resolve(__dirname, "data/categories.json"));
-				let categories = JSON.parse(rawdata);
+				let categories = functions.getCategoriesData();
 
 				category_index = functions.getCategoryIndex(category_name);
 				game_index = Math.floor(Math.random() * categories[category_index]['games'].length);
@@ -32,8 +31,7 @@ module.exports = {
 		}
 		else
 		{
-			let rawdata = fs.readFileSync(path.resolve(__dirname, "data/games.json"));
-	    let games = JSON.parse(rawdata);
+	    let games = functions.getGamesData();
 
 			var index = Math.floor(Math.random() * games.length)
 	    var game = games[index];
