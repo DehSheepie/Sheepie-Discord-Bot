@@ -67,5 +67,19 @@ module.exports = {
   		}
   	}
   	return -1; // This should not happen
+  },
+
+  getGamesData : function()
+  {
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/games.json"));
+    let games = JSON.parse(rawdata);
+    return games;
+  },
+
+  getCategoriesData : function()
+  {
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/categories.json"));
+    let categories = JSON.parse(rawdata);
+    return categories;
   }
 }
