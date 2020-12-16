@@ -36,7 +36,7 @@ module.exports = {
   		}
   	}
 
-  	return return_string.splice(0,-2);
+  	return return_string.slice(0,-2);
   },
 
   // Checks that a category exists inside the json file
@@ -69,17 +69,30 @@ module.exports = {
   	return -1; // This should not happen
   },
 
-  getGamesData : function()
-  {
+  getGamesData : function(){
     let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/games.json"));
     let games = JSON.parse(rawdata);
     return games;
   },
 
-  getCategoriesData : function()
-  {
+  getCategoriesData : function(){
     let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/categories.json"));
     let categories = JSON.parse(rawdata);
     return categories;
+  },
+  // TODO: Handle a call to this function that takes no parameter
+  clearCategories : function(game){
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/categories.json"));
+  	let categories = JSON.parse(rawdata);
+
+    for (i = 0; i < categories.length; i++)
+    {
+      if (categories[i].games.includes(game))
+      {
+        let index = categories[i].games.findIndex(arg => arg == game);
+        categories[i].games.splice(index, 1);
+        return categories;
+      }
+    }
   }
 }
