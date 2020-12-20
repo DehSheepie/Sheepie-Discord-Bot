@@ -21,11 +21,11 @@ module.exports = {
 			// Write to game file
 			fs.writeFileSync("./commands/data/games.json", JSON.stringify(games));
 
-			message.channel.send("Game deleted");
+			message.channel.send("Game deleted :wastebasket:");
     }
 		else
 		{
-			message.channel.send("Please enter a game name.")
+			message.channel.send(":warning: Please enter a game name. :warning:")
 		}
 	}
 };

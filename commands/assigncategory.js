@@ -92,7 +92,7 @@ module.exports = {
 		}
 		else
 		{
-			message.channel.send("Game or Category empty.");
+			message.channel.send(":no_entry_sign: Game or Category empty. :no_entry_sign:");
 		}
 	}
 };

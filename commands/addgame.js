@@ -20,7 +20,7 @@ module.exports = {
     }
 		else
 		{
-			message.channel.send("Please enter a game name.")
+			message.channel.send(":no_entry_sign: Please enter a game name. :no_entry_sign:")
 		}
 	}
 };

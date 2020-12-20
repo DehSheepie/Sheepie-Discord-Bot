@@ -23,13 +23,13 @@ module.exports = {
 			}
       else {
       	{
-								message.channel.send(":no_entry_sign: Category already exists. :no_entry_sign:")
+								message.channel.send(":warning: Category already exists. :warning:")
 				}
       }
     }
 		else
 		{
-			message.channel.send(":no_entry_sign: Please enter a category name.")
+			message.channel.send(":no_entry_sign: Please enter a category name. :no_entry_sign:")
 		}
 	}
 };
