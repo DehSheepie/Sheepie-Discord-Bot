@@ -14,6 +14,7 @@ module.exports = {
 			let game_index = games.findIndex(arg => arg.name == game_name);
 			games.splice(game_index, 1);
 
+			// Creates a new list of categories that excludes the recently deleted game
 			let categories = functions.clearCategories(game_name);
 
 			// Write to category file
