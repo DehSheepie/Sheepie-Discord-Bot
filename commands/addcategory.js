@@ -18,17 +18,17 @@ module.exports = {
 	        return { name: item.name[0], games: []};
 	      });
 	      fs.writeFileSync("./commands/data/categories.json", JSON.stringify(categories));
-	      message.channel.send("Category: " + category_name + " added.");
+	      message.channel.send("Category: [" + category_name + "] added.");
 			}
       else {
       	{
-								message.channel.send(":warning: Category already exists. :warning:")
+					message.channel.send(":warning: Category already exists. :warning:");
 				}
       }
     }
 		else
 		{
-			message.channel.send(":no_entry_sign: Please enter a category name. :no_entry_sign:")
+			message.channel.send(":no_entry_sign: Please enter a category name. :no_entry_sign:");
 		}
 	}
 };

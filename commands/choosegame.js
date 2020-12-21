@@ -33,7 +33,7 @@ module.exports = {
 		{
 	    let games = functions.getGamesData();
 
-			var index = Math.floor(Math.random() * games.length)
+			var index = Math.floor(Math.random() * games.length);
 	    var game = games[index];
 
 			const embed = new Discord.MessageEmbed()

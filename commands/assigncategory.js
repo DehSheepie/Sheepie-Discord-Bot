@@ -4,7 +4,7 @@ module.exports = {
 	name: 'assigncategory',
 	description: 'Assigns a category for a game.',
 	execute(message, args) {
-    let games = functions.getGamesData()
+    let games = functions.getGamesData();
 		let categories = functions.getCategoriesData();
 
 		// Create args
