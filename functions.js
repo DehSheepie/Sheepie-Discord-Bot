@@ -54,6 +54,21 @@ module.exports = {
   	return false;
   },
 
+  // Checks that a game exists inside the json file
+  checkGameExists : function (game){
+    let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/games.json"));
+    let games = JSON.parse(rawdata);
+
+    for (i = 0; i < games.length; i++)
+    {
+      if(games[i].name == game)
+      {
+        return true;
+      }
+    }
+    return false;
+  },
+
   // Gets the index of a category or in category json file
   getCategoryIndex : function(category){
   	let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/categories.json"));
@@ -81,6 +96,7 @@ module.exports = {
     return categories;
   },
   // TODO: Handle a call to this function that takes no parameter
+  // Clears all the instances of a game in the categories and returns the data
   clearCategories : function(game){
     let rawdata = fs.readFileSync(path.resolve(__dirname, "commands/data/categories.json"));
   	let categories = JSON.parse(rawdata);
@@ -94,5 +110,5 @@ module.exports = {
       }
     }
     return categories;
-  }
+  },
 }
