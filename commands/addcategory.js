@@ -6,7 +6,6 @@ module.exports = {
 	description: 'Adds a category to the stored categories.',
 	execute(message, args) {
 // TODO: Add code to allow for an empty json file
-// TODO: Add a check in the case that the category already exists
     let categories = functions.getCategoriesData();
     var category_name = functions.argsToString(args);
 
