@@ -91,8 +91,8 @@ module.exports = {
       {
         let index = categories[i].games.findIndex(arg => arg == game);
         categories[i].games.splice(index, 1);
-        return categories;
       }
     }
+    return categories;
   }
 }
