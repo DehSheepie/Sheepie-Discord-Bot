@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const functions = require('../functions.js');
 module.exports = {
 	name: 'assigncategory',
 	description: 'Assigns a category for a game.',
