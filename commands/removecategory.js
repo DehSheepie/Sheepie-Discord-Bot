@@ -16,7 +16,7 @@ module.exports = {
 			// findIndex returns -1 on fail to find
 			let category_index = categories.findIndex(arg => arg.name == category_name);
 
-			if (!category_index === -1)
+			if (category_index !== -1)
 			{
 				categories.splice(category_index, 1);
 
