@@ -9,9 +9,9 @@ module.exports = {
 
 			let output = "";
 			categories.forEach((category, index) => {
-				output += `${index}: ${category.name}: ${category.games}\n`;
+				output += `[${index}:${category.name}]: ${category.games}\n`;
 			});
 
-			message.channel.send(`\`\`\`${output}\`\`\``);
+			message.channel.send(`__**Categories**__\n\`\`\`${output}\`\`\``);
 	}
 };
