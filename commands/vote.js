@@ -26,40 +26,52 @@ module.exports = {
 			});
 			message.delete();
 		}
+		else if (text.split(":").length == 2)
+		{
+			message.channel.send(":warning: Please provide more than one option. :warning:");
+			message.delete();
+		}
 		else
 		{
-			// Redo this
-			let reaction_numbers = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣", "🔟"]
-			text = text.split(":");
-			let question = text[0];
-			let string = "";
-			for (i = 1; i < text.length; i++)
+			if (text.split(":").length > 11)
 			{
-				string += `[${reaction_numbers[i]}]: ${text[i]}\n`;
+				message.channel.send(":warning: Please provide fewer options. :warning:");
+				message.delete();
 			}
+			else
+			{
+				// Redo this
+				let reaction_numbers = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣", "🔟"]
+				text = text.split(":");
+				let question = text[0];
+				let string = "";
+				for (i = 1; i < text.length; i++)
+				{
+					string += `[${reaction_numbers[i]}]: ${text[i]}\n`;
+				}
 
-			const embed = new Discord.MessageEmbed()
-			// Set the title of the field
-			.setTitle(question)
-			// Set the color of the embed
-			.setColor(0xff0000)
-			// Set the main content of the embed
-			.setDescription('Please respond using one of the reactions below.')
-			.addField("Options", string);
+				const embed = new Discord.MessageEmbed()
+				// Set the title of the field
+				.setTitle(question)
+				// Set the color of the embed
+				.setColor(0xff0000)
+				// Set the main content of the embed
+				.setDescription('Please respond using one of the reactions below.')
+				.addField("Options", string);
 
 
-			// Send the embed to the same channel as the message
-			 message.channel.send(embed).then((msg) => {
-				 for(i = 1; i < text.length; i++)
-				 {
-					 msg.react(reaction_numbers[i]);
-				 }
-			 });
+				// Send the embed to the same channel as the message
+				 message.channel.send(embed).then((msg) => {
+					 for(i = 1; i < text.length; i++)
+					 {
+						 msg.react(reaction_numbers[i]);
+					 }
+				 });
 
 
 
-			message.delete();
-
+				message.delete();
+			}
 		}
 	}
 };
