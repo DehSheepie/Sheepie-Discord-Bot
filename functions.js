@@ -95,6 +95,7 @@ module.exports = {
     let categories = JSON.parse(rawdata);
     return categories;
   },
+  
   // TODO: Handle a call to this function that takes no parameter
   // Clears all the instances of a game in the categories and returns the data
   clearCategories : function(game){
