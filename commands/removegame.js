@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const functions = require('../functions.js');
 module.exports = {
 	name: 'removegame',
