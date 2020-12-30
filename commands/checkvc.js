@@ -7,7 +7,8 @@ module.exports = {
     // Checks if a member is conntected to any voice channel
     if (message.member.voice.channel)
     {
-      message.reply("I can see you are in a voice channel.");
+      let channel_name = message.member.voice.channel.name;
+      message.reply(`I can see you are in the [${message.member.voice.channel.name}] voice channel.`);
     }
     else
     {
