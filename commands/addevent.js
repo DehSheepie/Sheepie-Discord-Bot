@@ -3,7 +3,7 @@ const fs = require('fs');
 
 module.exports = {
   name: 'addevent',
-  description: "Adds a group for events to be added to",
+  description: "Adds an event to an existing group.",
   execute(message, args) {
 
     let text = functions.argsToString(args);
