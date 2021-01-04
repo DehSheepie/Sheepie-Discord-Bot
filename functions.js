@@ -96,11 +96,20 @@ module.exports = {
     return categories;
   },
 
-  getGroupsData : function(filename){
+  // Gets the data from a group based on the passed in filename
+  getGroupData : function(filename){
     let rawdata = fs.readFileSync(path.resolve(__dirname, `commands/data/events/${filename}.json`));
     let group = JSON.parse(rawdata);
     return group;
   },
+
+  // Get the filesnames from events folder
+  getGroupsData : function(){
+    const fs = require('fs');
+    const data = fs.readdirSync('./commands/data/events').filter(file => file.endsWith('.json'));
+    let events = JSON.parse(data);
+  },
+
 
   // TODO: Handle a call to this function that takes no parameter
   // Clears all the instances of a game in the categories and returns the data
