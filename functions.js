@@ -105,9 +105,8 @@ module.exports = {
 
   // Get the filesnames from events folder
   getGroupsData : function(){
-    const fs = require('fs');
-    const data = fs.readdirSync('./commands/data/events').filter(file => file.endsWith('.json'));
-    let events = JSON.parse(data);
+    let events = fs.readdirSync('./commands/data/events').filter(file => file.endsWith('.json'));
+    return events;
   },
 
 
