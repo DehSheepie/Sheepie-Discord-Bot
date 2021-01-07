@@ -20,14 +20,31 @@ module.exports = {
 
     if (values.length === 2)
     {
-      let group = functions.getGroupData(values[0]);
-      let event_index = group.events.indexOf(arg => arg.name == values[1]);
 
-      group.events.splice(event_index, 1);
+      // Checks the group exists
+      if (fs.existsSync(`./commands/data/events/${values[0]}.json`))
+      {
+        let group = functions.getGroupData(values[0]);
+        let event_index = group.events.indexOf(arg => arg.name == values[1]);
+        console.log(event_index);
+        // Checks the event exists in the group
+        if (event_index !== -1)
+        {
+          group.events.splice(event_index, 1);
 
-      fs.writeFileSync(`./commands/data/events/${values[0]}.json`, JSON.stringify(group));
+          fs.writeFileSync(`./commands/data/events/${values[0]}.json`, JSON.stringify(group));
 
-      message.channel.send(`Event: [${values[1]}] has been removed from group: [${values[0]}]`);
+          message.channel.send(`Event: [${values[1]}] has been removed from group: [${values[0]}]`);
+        }
+        else
+        {
+          message.channel.send(":warning: Group not found. :warning:");
+        }
+      }
+      else
+      {
+          message.channel.send(":warning: Event not found. :warning:");
+      }
     }
     else
     {
