@@ -4,7 +4,7 @@ module.exports = {
 	name: 'g-',
 	description: 'Removes a game from the stored games using an index.',
 	execute(message, args) {
-// TODO: Add code to allow for an empty json file
+		// TODO: Add code to allow for an empty json file
     let games = functions.getGamesData();
     var index = functions.argsToString(args);
 

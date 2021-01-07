@@ -4,7 +4,7 @@ module.exports = {
 	name: 'g+',
 	description: 'Adds a game to the stored games.',
 	execute(message, args) {
-// TODO: Add code to allow for an empty json file
+		// TODO: Add code to allow for an empty json file
     let games = functions.getGamesData();
     var game_name = functions.argsToString(args);
 
