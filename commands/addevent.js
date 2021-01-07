@@ -11,10 +11,11 @@ module.exports = {
 
     if (values.length === 5)
     {
+      // Checks the group file exists
       if (fs.existsSync(`./commands/data/events/${values[0]}.json`))
       {
 
-        let group = functions.getGroupsData([values[0]]);
+        let group = functions.getGroupData([values[0]]);
 
         event =
         {
