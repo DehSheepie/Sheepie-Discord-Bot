@@ -25,10 +25,9 @@ module.exports = {
       if (fs.existsSync(`./commands/data/events/${values[0]}.json`))
       {
         let group = functions.getGroupData(values[0]);
-        let event_index = group.events.indexOf(arg => arg.name == values[1]);
-        console.log(event_index);
+        let event_index = group.events.findIndex(arg => arg.name == values[1]);
         // Checks the event exists in the group
-        if (event_index !== -1)
+        if (event_index != -1)
         {
           group.events.splice(event_index, 1);
 
@@ -38,12 +37,12 @@ module.exports = {
         }
         else
         {
-          message.channel.send(":warning: Group not found. :warning:");
+          message.channel.send(":warning: Event not found. :warning:");
         }
       }
       else
       {
-          message.channel.send(":warning: Event not found. :warning:");
+          message.channel.send(":warning: Group not found. :warning:");
       }
     }
     else
