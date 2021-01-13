@@ -5,7 +5,7 @@ module.exports = {
 	name: 'showgames',
 	description: 'Shows all the games and games in them.',
 	execute(message, args) {
-			games = functions.getGamesData();
+			var games = functions.getGamesData();
 
 			let output = "";
 			games.forEach((game, index) => {
