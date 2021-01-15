@@ -11,18 +11,19 @@ module.exports = {
     {
       let group = functions.getGroupData(group_name);
 
+      // TODO: Make it so the events only show if they are coming up
       let output = "";
       group.events.forEach((event, index) => {
-        output += `[${index}:${event.name}]: ${event.info}\n`;
+        if (event.upcoming)
+        {
+          output += `[${index}:${event.name}]: ${event.info}\n`;
+        }
       });
-
       message.channel.send(`__**Events**__\n\`\`\`${output}\`\`\``);
-
     }
     else
     {
       message.channel.send(":warning: Group not found. :warning:");
     }
-
   }
 };
